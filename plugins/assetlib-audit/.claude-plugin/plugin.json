@@ -13,5 +13,7 @@
   "keywords": ["assets", "images", "audit", "duplicates", "mobile", "expo", "react-native", "ios", "android"],
   "icon": "./assets/icon.svg",
   "documentationUrl": "https://github.com/AssetLib/agent-plugins/tree/main/plugins/assetlib-audit#readme",
-  "supportUrl": "https://github.com/AssetLib/agent-plugins/issues"
+  "supportUrl": "https://github.com/AssetLib/agent-plugins/issues",
+  "privacyPolicyUrl": "https://www.assetlib.dev/privacy/",
+  "termsOfServiceUrl": "https://www.assetlib.dev/terms/"
 }
