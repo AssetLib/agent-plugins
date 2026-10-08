@@ -1,0 +1,18 @@
+{
+  "name": "assetlib",
+  "description": "Assetlib plugins for coding agents. Today: a read-only audit of an app's artwork. Later: connected release tools once the hosted API exposes them.",
+  "version": "0.1.0",
+  "owner": {
+    "name": "Assetlib",
+    "url": "https://github.com/AssetLib"
+  },
+  "plugins": [
+    {
+      "name": "assetlib-audit",
+      "source": "./plugins/assetlib-audit",
+      "description": "Inventory an app's PNG, JPEG, and WebP artwork locally: measured bytes, exact duplicates, oversized candidates, and reference hints. Then plan a bounded artwork migration that keeps bundled fallbacks.",
+      "category": "developer-tools",
+      "tags": ["assets", "images", "audit", "duplicates", "mobile", "expo", "react-native", "ios", "android"]
+    }
+  ]
+}

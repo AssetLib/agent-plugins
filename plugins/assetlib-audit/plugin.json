@@ -1,0 +1,31 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "assetlib-audit",
+  "version": "0.1.0",
+  "description": "Inventory an app's PNG, JPEG, and WebP artwork locally: measured bytes, exact duplicates, oversized candidates, and reference hints. Then plan a bounded artwork migration that keeps bundled fallbacks.",
+  "author": {
+    "name": "Assetlib",
+    "url": "https://github.com/AssetLib"
+  },
+  "homepage": "https://github.com/AssetLib/agent-plugins/tree/main/plugins/assetlib-audit#readme",
+  "repository": "https://github.com/AssetLib/agent-plugins",
+  "license": "MIT",
+  "keywords": ["assets", "images", "audit", "duplicates", "mobile", "expo", "react-native", "ios", "android"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Assetlib Audit",
+        "shortDescription": "Audit app artwork locally",
+        "longDescription": "Runs Assetlib's read-only audit command against an app you are working on and explains the evidence: measured image bytes, exact duplicate files, dimension candidates above a threshold, and optional quoted-reference hints with source locations. It then proposes at most a few artwork placements for a bounded migration and keeps every current image as a bundled fallback. The audit runs on your machine with no account. Its only network use is npm fetching the pinned package on first run. It never uploads, transforms, deletes, or rewrites files.",
+        "developerName": "Assetlib",
+        "category": "Developer Tools",
+        "capabilities": ["Read"],
+        "websiteURL": "https://assetlib-sable.vercel.app",
+        "defaultPrompt": "Use $assetlib-audit to inventory this app's images and propose a small artwork migration that keeps bundled fallbacks.",
+        "brandColor": "#202820",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      }
+    }
+  }
+}

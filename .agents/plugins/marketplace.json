@@ -1,0 +1,11 @@
+{
+  "name": "assetlib",
+  "plugins": [
+    {
+      "name": "assetlib-audit",
+      "source": { "source": "local", "path": "./plugins/assetlib-audit" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Developer Tools"
+    }
+  ]
+}

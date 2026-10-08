@@ -1,0 +1,17 @@
+{
+  "name": "assetlib-audit",
+  "displayName": "Assetlib Audit",
+  "version": "0.1.0",
+  "description": "Inventory an app's PNG, JPEG, and WebP artwork locally: measured bytes, exact duplicates, oversized candidates, and reference hints. Then plan a bounded artwork migration that keeps bundled fallbacks.",
+  "author": {
+    "name": "Assetlib",
+    "url": "https://github.com/AssetLib"
+  },
+  "homepage": "https://github.com/AssetLib/agent-plugins/tree/main/plugins/assetlib-audit#readme",
+  "repository": "https://github.com/AssetLib/agent-plugins",
+  "license": "MIT",
+  "keywords": ["assets", "images", "audit", "duplicates", "mobile", "expo", "react-native", "ios", "android"],
+  "icon": "./assets/icon.svg",
+  "documentationUrl": "https://github.com/AssetLib/agent-plugins/tree/main/plugins/assetlib-audit#readme",
+  "supportUrl": "https://github.com/AssetLib/agent-plugins/issues"
+}
