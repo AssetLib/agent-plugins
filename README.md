@@ -17,10 +17,11 @@ claude plugin marketplace add AssetLib/agent-plugins
 claude plugin install assetlib-audit@assetlib
 ```
 
-Codex or the ChatGPT desktop app:
+Codex CLI:
 
 ```sh
 codex plugin marketplace add AssetLib/agent-plugins
+codex plugin add assetlib-audit@assetlib
 ```
 
 ## Develop
