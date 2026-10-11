@@ -62,7 +62,7 @@ codex plugin marketplace remove assetlib       # undo
 
 ## Release
 
-There is no package to publish. Users receive whatever is on `main` through the marketplace. No release tags exist yet (as of 2026-10-09). A release is: update the audit pin and plugin version as above, run both `claude plugin validate` commands, and merge to `main`. `claude plugin tag` can create `assetlib-audit--v<version>` tags; ask the maintainer before creating or pushing one.
+There is no package to publish. Users receive whatever is on `main` through the marketplace. Tags mark released plugin versions; the first is `assetlib-audit--v0.2.0` (2026-10-10), an annotated tag on the commit that set version 0.2.0. A release is: update the audit pin and plugin version as above, run both `claude plugin validate` commands, and merge to `main`. `claude plugin tag` can create `assetlib-audit--v<version>` tags; ask the maintainer before creating or pushing one.
 
 ## Don'ts
 
