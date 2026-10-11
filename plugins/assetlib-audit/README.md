@@ -4,7 +4,7 @@ A skills-only plugin for Claude Code and Codex that teaches the agent to run Ass
 
 ## What it does
 
-When you ask the agent to audit, inventory, dedupe, or shrink an app's images, or to assess moving artwork to remote delivery, the skill runs the pinned command `npx -y @assetlib/audit@0.1.0 <app-root> --json` and explains the evidence: measured bytes for every PNG, JPEG, and WebP file, exact duplicate groups by SHA-256, dimension candidates above a configurable long edge, and optional quoted-reference hints with source locations. It then proposes at most a few artwork placements for a bounded migration and keeps every current image as a bundled fallback. Recommending no migration is a normal outcome.
+When you ask the agent to audit, inventory, dedupe, or shrink an app's images, or to assess moving artwork to remote delivery, the skill runs the pinned command `npx -y @assetlib/audit@0.2.0 <app-root> --json` and explains the evidence: measured bytes for every PNG, JPEG, and WebP file, exact duplicate groups by SHA-256, dimension candidates above a configurable long edge, and optional quoted-reference hints with source locations. It then proposes at most a few artwork placements for a bounded migration and keeps every current image as a bundled fallback. Recommending no migration is a normal outcome.
 
 ## What it runs, sends, and fetches
 

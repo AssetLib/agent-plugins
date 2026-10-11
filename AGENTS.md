@@ -17,7 +17,7 @@ Other read-only checks:
 
 ```sh
 claude plugin tag --dry-run ./plugins/assetlib-audit   # plugin.json and the marketplace entry agree
-npx -y @assetlib/audit@0.1.0 --help                     # the published CLI the skill pins
+npx -y @assetlib/audit@0.2.0 --help                     # the published CLI the skill pins
 ```
 
 Try the plugin locally:
@@ -40,7 +40,7 @@ codex plugin marketplace remove assetlib       # undo
 
 ## Things that change together
 
-- **Pinned audit version.** `@assetlib/audit@0.1.0` appears in `SKILL.md` (Run section) and `plugins/assetlib-audit/README.md`. The same pin lives in sdk-js: `packages/audit/package.json`, its README, and the CLI help text in `packages/audit/bin/assetlib-audit.mjs`. On every audit release, move all of them to the new exact version in the same pass. Pin only versions already published on npm. Never use a range, `latest`, or a different package.
+- **Pinned audit version.** `@assetlib/audit@0.2.0` appears in `SKILL.md` (Run section) and `plugins/assetlib-audit/README.md`. The same pin lives in sdk-js: `packages/audit/package.json`, its README, and the CLI help text in `packages/audit/bin/assetlib-audit.mjs`. On every audit release, move all of them to the new exact version in the same pass. Pin only versions already published on npm. Never use a range, `latest`, or a different package.
 - **Plugin version.** `version` in `.claude-plugin/plugin.json` and `plugin.json` must match. Claude Code uses it to decide whether installed copies update, so bump it with any change users should receive, including an audit pin bump. `.claude-plugin/marketplace.json` has its own top-level `version` for the marketplace.
 - **Listing copy.** The plugin `description` is identical in both plugin manifests and the Claude marketplace entry. Manifest `keywords` match the marketplace `tags`. `defaultPrompt` and `brandColor` in `plugin.json` match `default_prompt` and `brand_color` in `agents/openai.yaml`. Privacy and terms URLs appear in both manifests.
 - **Facts about the audit.** The plugin README, `SKILL.md`, and the Codex `longDescription` state what the audit reads (PNG, JPEG, WebP), what it needs (Node.js 22 or later), and what it fetches (the package and its one dependency). If the audit package changes any of these, update all three.
