@@ -24,6 +24,12 @@ codex plugin marketplace add AssetLib/agent-plugins
 codex plugin add assetlib-audit@assetlib
 ```
 
+Other agents, such as Cursor or GitHub Copilot, through the [skills CLI](https://github.com/vercel-labs/skills). It installs the same skill without the plugin wrapper:
+
+```sh
+npx skills add AssetLib/agent-plugins --skill assetlib-audit
+```
+
 ## Develop
 
 Each plugin lives under `plugins/<name>` with its own manifest, README, and license. The Claude manifest is in `.claude-plugin/plugin.json`; the portable manifest Codex reads is `plugin.json` at the plugin root. Validate before opening a pull request:

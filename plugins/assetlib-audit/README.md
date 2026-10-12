@@ -30,6 +30,12 @@ codex plugin marketplace add AssetLib/agent-plugins
 codex plugin add assetlib-audit@assetlib
 ```
 
+Other agents, such as Cursor or GitHub Copilot, through the [skills CLI](https://github.com/vercel-labs/skills). It installs the same skill without the plugin wrapper:
+
+```sh
+npx skills add AssetLib/agent-plugins --skill assetlib-audit
+```
+
 Then ask, for example: "Audit the images in this app and tell me what could move to remote delivery without losing the offline fallback."
 
 ## Limits
