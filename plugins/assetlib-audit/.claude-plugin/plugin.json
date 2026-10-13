@@ -1,7 +1,7 @@
 {
   "name": "assetlib-audit",
   "displayName": "Assetlib Audit",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Inventory an app's PNG, JPEG, and WebP artwork locally: measured bytes, exact duplicates, oversized candidates, and reference hints. Then plan a bounded artwork migration that keeps bundled fallbacks.",
   "author": {
     "name": "Assetlib",
