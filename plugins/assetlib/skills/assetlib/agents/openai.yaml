@@ -4,4 +4,4 @@ interface:
   brand_color: "#202820"
   default_prompt: "Use $assetlib to show this app's Assetlib placements and what each one shows in production."
 policy:
-  allow_implicit_invocation: true
+  allow_implicit_invocation: false
