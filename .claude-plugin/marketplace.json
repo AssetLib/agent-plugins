@@ -1,7 +1,7 @@
 {
   "name": "assetlib",
-  "description": "Assetlib plugins for coding agents. Today: a read-only audit of an app's artwork. Later: connected release tools once the hosted API exposes them.",
-  "version": "0.1.0",
+  "description": "Assetlib plugins for coding agents: a read-only audit of an app's artwork, and a connected plugin that reads and drafts a workspace's image placements through Assetlib's MCP server.",
+  "version": "0.2.0",
   "owner": {
     "name": "Assetlib",
     "url": "https://github.com/AssetLib"
@@ -13,6 +13,13 @@
       "description": "Inventory an app's PNG, JPEG, and WebP artwork locally: measured bytes, exact duplicates, oversized candidates, and reference hints. Then plan a bounded artwork migration that keeps bundled fallbacks.",
       "category": "developer-tools",
       "tags": ["assets", "images", "audit", "duplicates", "mobile", "expo", "react-native", "ios", "android"]
+    },
+    {
+      "name": "assetlib",
+      "source": "./plugins/assetlib",
+      "description": "Connect your coding agent to an Assetlib workspace: see what each image placement shows in draft, staging and production, its code references and release history, and prepare image changes as a draft. Publishing stays with a person in the console.",
+      "category": "developer-tools",
+      "tags": ["assets", "images", "placements", "releases", "mcp", "mobile", "expo", "react-native", "ios", "android"]
     }
   ]
 }

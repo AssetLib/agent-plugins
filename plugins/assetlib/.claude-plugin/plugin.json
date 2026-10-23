@@ -1,0 +1,19 @@
+{
+  "name": "assetlib",
+  "displayName": "Assetlib",
+  "version": "0.1.0",
+  "description": "Connect your coding agent to an Assetlib workspace: see what each image placement shows in draft, staging and production, its code references and release history, and prepare image changes as a draft. Publishing stays with a person in the console.",
+  "author": {
+    "name": "Assetlib",
+    "url": "https://github.com/AssetLib"
+  },
+  "homepage": "https://github.com/AssetLib/agent-plugins/tree/main/plugins/assetlib#readme",
+  "repository": "https://github.com/AssetLib/agent-plugins",
+  "license": "MIT",
+  "keywords": ["assets", "images", "placements", "releases", "mcp", "mobile", "expo", "react-native", "ios", "android"],
+  "icon": "./assets/icon.svg",
+  "documentationUrl": "https://github.com/AssetLib/agent-plugins/tree/main/plugins/assetlib#readme",
+  "supportUrl": "https://github.com/AssetLib/agent-plugins/issues",
+  "privacyPolicyUrl": "https://www.assetlib.dev/privacy/",
+  "termsOfServiceUrl": "https://www.assetlib.dev/terms/"
+}

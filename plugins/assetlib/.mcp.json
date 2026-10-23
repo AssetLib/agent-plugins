@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "assetlib": {
+      "type": "http",
+      "url": "https://console.assetlib.dev/mcp"
+    }
+  }
+}

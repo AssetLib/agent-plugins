@@ -1,0 +1,7 @@
+interface:
+  display_name: "Assetlib"
+  short_description: "Read and draft an app's image placements in Assetlib"
+  brand_color: "#202820"
+  default_prompt: "Use $assetlib to show this app's Assetlib placements and what each one shows in production."
+policy:
+  allow_implicit_invocation: true

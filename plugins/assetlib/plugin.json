@@ -1,0 +1,34 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "assetlib",
+  "version": "0.1.0",
+  "description": "Connect your coding agent to an Assetlib workspace: see what each image placement shows in draft, staging and production, its code references and release history, and prepare image changes as a draft. Publishing stays with a person in the console.",
+  "author": {
+    "name": "Assetlib",
+    "url": "https://github.com/AssetLib"
+  },
+  "homepage": "https://github.com/AssetLib/agent-plugins/tree/main/plugins/assetlib#readme",
+  "repository": "https://github.com/AssetLib/agent-plugins",
+  "license": "MIT",
+  "keywords": ["assets", "images", "placements", "releases", "mcp", "mobile", "expo", "react-native", "ios", "android"],
+  "mcpServers": "./.mcp.json",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Assetlib",
+        "shortDescription": "Read and draft an app's image placements",
+        "longDescription": "Connects to an Assetlib workspace through Assetlib's hosted MCP server after you sign in with your Assetlib account in the browser. Each connection covers one workspace, chosen when you sign in. The agent can read each placement's contract, the image it shows in draft, staging and production, its code references and release history, and the workspace's setup steps. With your permission it can upload an image and assign images to placements as a draft. It cannot publish: a person with publish rights reviews the draft and publishes it in the console.",
+        "developerName": "Assetlib",
+        "category": "Developer Tools",
+        "capabilities": ["Read", "Write"],
+        "websiteURL": "https://www.assetlib.dev",
+        "privacyPolicyURL": "https://www.assetlib.dev/privacy/",
+        "termsOfServiceURL": "https://www.assetlib.dev/terms/",
+        "defaultPrompt": "Use $assetlib to show this app's Assetlib placements and what each one shows in production.",
+        "brandColor": "#202820",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      }
+    }
+  }
+}

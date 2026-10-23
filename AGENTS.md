@@ -1,17 +1,18 @@
 # AGENTS.md
 
-Public repository `AssetLib/agent-plugins`: a plugin marketplace named `assetlib` for Claude Code and Codex. It ships one skills-only plugin, `assetlib-audit`, which runs the published npm package `@assetlib/audit` and explains the result. The audit itself is developed in [AssetLib/sdk-js](https://github.com/AssetLib/sdk-js) under `packages/audit`. This repository has no build, no package manifest, and no CI: it is JSON manifests, Markdown, and icons.
+Public repository `AssetLib/agent-plugins`: a plugin marketplace named `assetlib` for Claude Code and Codex. It ships two plugins: `assetlib-audit`, skills only, which runs the published npm package `@assetlib/audit` and explains the result; and `assetlib`, the connected plugin, which declares Assetlib's hosted MCP server (`https://console.assetlib.dev/mcp`, OAuth sign-in, one workspace per connection) plus a skill for using it. The MCP server and its tools live in AssetLib/console (`src/app/mcp`, CONTRACT.md "Agent connections"). The audit itself is developed in [AssetLib/sdk-js](https://github.com/AssetLib/sdk-js) under `packages/audit`. This repository has no build, no package manifest, and no CI: it is JSON manifests, Markdown, and icons.
 
 ## Commands
 
-Validate before calling any change done. Both must exit 0:
+Validate before calling any change done. All three must exit 0:
 
 ```sh
 claude plugin validate .                          # marketplace plus every plugin it lists
 claude plugin validate ./plugins/assetlib-audit   # the plugin alone
+claude plugin validate ./plugins/assetlib
 ```
 
-Both currently pass with five warnings about fields Claude Code does not read in `plugins/assetlib-audit/.claude-plugin/plugin.json`: `icon`, `documentationUrl`, `supportUrl`, `privacyPolicyUrl`, `termsOfServiceUrl`. They are kept on purpose for directory listings, so `--strict` fails today. Do not delete them to make it pass. Any other warning or error is yours to fix.
+They currently pass with five warnings per plugin about fields Claude Code does not read in each `.claude-plugin/plugin.json`: `icon`, `documentationUrl`, `supportUrl`, `privacyPolicyUrl`, `termsOfServiceUrl`. They are kept on purpose for directory listings, so `--strict` fails today. Do not delete them to make it pass. Any other warning or error is yours to fix.
 
 Other read-only checks:
 
@@ -37,6 +38,7 @@ codex plugin marketplace remove assetlib       # undo
 - `plugins/assetlib-audit/plugin.json`: portable manifest Codex reads. `extensions["com.openai"].interface` holds the OpenAI directory copy, icon, and default prompt.
 - `plugins/assetlib-audit/skills/assetlib-audit/SKILL.md`: the skill. Its frontmatter `name` must equal the directory name. `agents/openai.yaml` beside it holds Codex display metadata and `allow_implicit_invocation`.
 - `plugins/assetlib-audit/assets/`: `icon.svg` (Claude manifest) and `icon.png` (Codex manifest).
+- `plugins/assetlib/`: the same layout plus `.mcp.json` (`mcpServers.assetlib`, type `http`), which Claude Code loads from the plugin root and Codex through `"mcpServers": "./.mcp.json"` in `plugin.json`. Its skill `skills/assetlib/SKILL.md` names the server's tools; keep it in step with the console's tool list.
 
 ## Things that change together
 
@@ -46,13 +48,15 @@ codex plugin marketplace remove assetlib       # undo
 - **Facts about the audit.** The plugin README, `SKILL.md`, and the Codex `longDescription` state what the audit reads (PNG, JPEG, WebP), what it needs (Node.js 22 or later), and what it fetches (the package and its one dependency). If the audit package changes any of these, update all three.
 - **Install commands.** The root README and `plugins/assetlib-audit/README.md` show the same install steps. Codex needs two commands, `codex plugin marketplace add AssetLib/agent-plugins` then `codex plugin add assetlib-audit@assetlib`; adding the marketplace alone installs nothing (checked with codex-cli 0.153.4 on 2026-10-09).
 - **New plugins** need an entry in both marketplace files, both manifests, and a row in the root README table.
+- **The MCP address and tool names.** `https://console.assetlib.dev/mcp` appears in `plugins/assetlib/.mcp.json`, both READMEs, both skills and the audit skill's hand-off; the console's Overview "Start here" card, the CLI's `init` output and AGENTS.md section, and the website show the same commands. The `assetlib` skill names the tools the console registers (`get_workspace`, `get_setup_guide`, `list_placements`, `get_placement`, `list_images`, `get_image`, `list_releases`, `review_draft`, `create_image_upload`, `assign_image`).
 
 ## Invariants
 
 - **The skill is read-only.** It runs the audit and reports. It never deletes, uploads, transforms, or rewrites the user's assets or source, and never makes cleanup, publishing, analytics, or a repository-wide rewrite a side effect of an audit. Migration proposals keep every current image as a bundled fallback.
-- **`assetlib-audit` stays skills-only.** No hooks, MCP server, scripts, or network calls of its own; its README promises this. Directories cannot add an MCP server to a published skills-only plugin later, so connected tools (MCP plus OAuth) will ship as a separate plugin. The bare name `assetlib` is reserved for that plugin.
-- **Names and paths are public contracts.** Marketplace `assetlib`, plugin and skill `assetlib-audit`, path `plugins/assetlib-audit`, install id `assetlib-audit@assetlib`, and `$assetlib-audit` in the default prompts. Users install by these, and Claude and OpenAI directory listings (pending review as of 2026-10-09) reference them. Renaming or moving any of them breaks installs.
-- **No invented integration.** The skill must not invent Assetlib SDK imports, package names, API keys, an MCP server, or installation success. Connected features are planned; describe them as planned.
+- **`assetlib-audit` stays skills-only.** No hooks, MCP server, scripts, or network calls of its own; its README promises this. Directories cannot add an MCP server to a published skills-only plugin later, so the connected tools (MCP plus OAuth) ship as the separate plugin `assetlib`.
+- **The connected plugin never publishes.** The server has no publish, promote, restore or approve tool, and the `assetlib` skill hands publishing to a person. Don't describe agent publishing as available.
+- **Names and paths are public contracts.** Marketplace `assetlib`, plugins and skills `assetlib-audit` and `assetlib`, paths `plugins/assetlib-audit` and `plugins/assetlib`, install ids `assetlib-audit@assetlib` and `assetlib@assetlib`, the MCP server name `assetlib`, and `$assetlib-audit` and `$assetlib` in the default prompts. Users install by these, and Claude and OpenAI directory listings (pending review as of 2026-10-09) reference them. Renaming or moving any of them breaks installs.
+- **No invented integration.** The skills must not invent Assetlib SDK imports, package names, API keys, MCP tools, or installation success. Describe only tools the console's MCP server registers.
 
 ## Writing rules
 
@@ -67,7 +71,7 @@ There is no package to publish. Users receive whatever is on `main` through the 
 ## Don'ts
 
 - Don't change audit behavior here; it lives in AssetLib/sdk-js.
-- Don't add hooks, MCP servers, scripts, or dependencies to `assetlib-audit`, and don't use the name `assetlib` for a plugin.
+- Don't add hooks, MCP servers, scripts, or dependencies to `assetlib-audit`. Don't add scripts, hooks or local servers to `assetlib`; it declares the hosted server only.
 - Don't rename or move plugins, skills, the marketplace, or plugin paths.
 - Don't remove the intentionally unread manifest fields to satisfy `--strict`.
 - Don't commit secrets, tokens, or absolute local paths.

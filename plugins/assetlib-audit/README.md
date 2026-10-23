@@ -40,7 +40,7 @@ Then ask, for example: "Audit the images in this app and tell me what could move
 
 ## Limits
 
-The audit covers PNG, JPEG, and WebP files only. It does not parse asset catalogs, Android resource names, SVG, GIF, HEIC, fonts, or video. An unmatched literal reference means unresolved, not unused. This plugin does not connect to a hosted Assetlib workspace, publish releases, or install a delivery SDK. Those capabilities will arrive as a separate connected plugin once the hosted API exposes them.
+The audit covers PNG, JPEG, and WebP files only. It does not parse asset catalogs, Android resource names, SVG, GIF, HEIC, fonts, or video. An unmatched literal reference means unresolved, not unused. This plugin does not connect to a hosted Assetlib workspace, publish releases, or install a delivery SDK. The separate [`assetlib`](../assetlib) plugin in this marketplace connects an agent to a workspace.
 
 ## License
 

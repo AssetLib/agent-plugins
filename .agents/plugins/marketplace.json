@@ -6,6 +6,12 @@
       "source": { "source": "local", "path": "./plugins/assetlib-audit" },
       "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
       "category": "Developer Tools"
+    },
+    {
+      "name": "assetlib",
+      "source": { "source": "local", "path": "./plugins/assetlib" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Developer Tools"
     }
   ]
 }
