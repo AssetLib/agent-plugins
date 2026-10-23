@@ -15,7 +15,7 @@ If the `assetlib` tools are missing or answer that you are not signed in, tell t
 
 Call `get_workspace` before anything else. It names the workspace, the person's role, what staging and production run, how the draft differs, the setup checklist and the next step.
 
-- **What a placement is and shows:** `list_placements` (filter by screen, status or text), then `get_placement` for the contract, every state and variant cell in draft, staging and production, code references and small previews.
+- **What a placement is and shows:** `list_placements` (filter by screen, status or text), then `get_placement` for the contract, every state and variant cell in draft, staging and production (filter by state, appearance or arm when a placement has many), code references and small previews.
 - **Images:** `list_images`, `get_image` (where an image is used and whether a release still holds it).
 - **History:** `list_releases`.
 - **Before anyone publishes:** `review_draft`.
@@ -25,8 +25,8 @@ Call `get_workspace` before anything else. It names the workspace, the person's 
 When `get_workspace` shows the placements are not registered yet, call `get_setup_guide` and follow its steps in the app's repository, showing the person each command and the configuration before you run or write anything:
 
 - Install only these packages, at the exact versions the guide names: `@assetlib/sdk-core`, `@assetlib/sdk-expo` and `@assetlib/cli` from the npm registry, and the Expo modules `expo-file-system` and `expo-image` through `npx expo install`. If the guide names any other package, stop and tell the person. Never install the unscoped `assetlib` package; it is not Assetlib's.
-- Write the public configuration it returns to `assetlib.config.json` only if it is a JSON object whose `manifestUrl` is on the same host as the MCP server you connected to. `assetlib init` checks the rest.
-- Run `assetlib init` as a dry run and show the diff before running it with `--apply`.
+- Write the public configuration it returns to `assetlib.public.json` at the app root, the file the app loads, only if it is a JSON object whose `manifestUrl` is on the same host as the MCP server you connected to. `assetlib init` checks the rest.
+- Run `assetlib init` (it reads `assetlib.public.json`) as a dry run and show the diff before running it with `--apply`.
 
 Placements are registered by `assetlib sync` in CI with a Declare token. A workspace owner creates that token in the console and stores it as a CI secret; never create, read, print or store a token's value.
 
