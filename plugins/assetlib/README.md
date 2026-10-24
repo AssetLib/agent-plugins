@@ -15,7 +15,7 @@ It cannot publish, promote, restore, approve, create placements, or change membe
 ## What it connects to and sends
 
 - Connects to: `https://console.assetlib.dev/mcp`, Assetlib's hosted MCP server, over HTTPS. The plugin contains no scripts or hooks of its own; it is this server address and a skill.
-- Signs in: in your browser, with your Assetlib account (GitHub or Google). You choose one workspace and whether the agent may draft changes. The agent acts as you, with your role in that workspace. Disconnect it any time in the console under Profile › Agent connections.
+- Signs in: in your browser, with your Assetlib account (GitHub). You choose one workspace and whether the agent may draft changes. The agent acts as you, with your role in that workspace. Disconnect it any time in the console under Profile › Agent connections.
 - Sends: what the agent asks for in tool calls, and image files you have it upload. Reading a workspace is free; uploads count toward the workspace's storage like any upload ([pricing](https://www.assetlib.dev/pricing/)).
 
 ## Install
@@ -34,6 +34,7 @@ Codex CLI:
 ```sh
 codex plugin marketplace add AssetLib/agent-plugins
 codex plugin add assetlib@assetlib
+codex mcp add assetlib --url https://console.assetlib.dev/mcp
 codex mcp login assetlib
 ```
 

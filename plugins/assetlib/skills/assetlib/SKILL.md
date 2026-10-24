@@ -9,7 +9,7 @@ Assetlib updates a mobile app's images without an app release. The app's code na
 
 ## Connect
 
-If the `assetlib` tools are missing or answer that you are not signed in, tell the person to sign in. In Claude Code they run `/mcp` and choose Authenticate for `assetlib`. In Codex they run `codex mcp login assetlib`. Without the plugin, the server is added with `claude mcp add --transport http assetlib https://console.assetlib.dev/mcp` or `codex mcp add assetlib --url https://console.assetlib.dev/mcp`. Signing in opens the browser: they choose the workspace and whether you may draft changes. They need an Assetlib account at https://console.assetlib.dev (GitHub or Google). Never ask for a password or a token.
+If the `assetlib` tools are missing or answer that you are not signed in, tell the person to sign in. In Claude Code they run `/mcp` and choose Authenticate for `assetlib`. In Codex they add the server with `codex mcp add assetlib --url https://console.assetlib.dev/mcp`, then run `codex mcp login assetlib`. In Claude Code without the plugin, the server is added with `claude mcp add --transport http assetlib https://console.assetlib.dev/mcp`. Signing in opens the browser: they choose the workspace and whether you may draft changes. They need an Assetlib account at https://console.assetlib.dev (sign in with GitHub). Never ask for a password or a token.
 
 ## Read first
 

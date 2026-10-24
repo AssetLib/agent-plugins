@@ -25,8 +25,9 @@ Codex CLI:
 codex plugin marketplace add AssetLib/agent-plugins
 codex plugin add assetlib-audit@assetlib
 codex plugin add assetlib@assetlib
-codex mcp login assetlib
 ```
+
+In Codex, connect the workspace by adding the server and signing in: `codex mcp add assetlib --url https://console.assetlib.dev/mcp`, then `codex mcp login assetlib`.
 
 Other agents, such as Cursor or GitHub Copilot, through the [skills CLI](https://github.com/vercel-labs/skills). It installs the same skill without the plugin wrapper:
 
